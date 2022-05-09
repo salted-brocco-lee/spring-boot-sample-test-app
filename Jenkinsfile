@@ -10,4 +10,8 @@ pipeline {
     }
 
   }
+  tools {
+    maven 'maven3.8.5'
+    jdk 'jdk'
+  }
 }
