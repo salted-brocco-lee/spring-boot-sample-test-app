@@ -17,6 +17,7 @@ pipeline {
             echo 'Unit Start Running'
             bat 'mvn -Dtest="com.example.testingweb.smoke.**" test'
             echo 'Unit Done'
+            junit '*'
           }
         }
 
@@ -41,6 +42,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
+        input(message: 'Voulez-vous Deployer ?', ok: 'Allons-y')
         echo 'Deploy Start'
         bat 'mvn -B -DskipTests install'
         echo 'Deploy Done'
