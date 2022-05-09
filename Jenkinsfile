@@ -17,7 +17,6 @@ pipeline {
             echo 'Unit Start Running'
             bat 'mvn -Dtest="com.example.testingweb.smoke.**" test'
             echo 'Unit Done'
-            junit '*'
           }
         }
 
