@@ -38,6 +38,14 @@ pipeline {
       }
     }
 
+    stage('Deploy') {
+      steps {
+        echo 'Deploy Start'
+        bat 'mvn -B -DskipTests install'
+        echo 'Deploy Done'
+      }
+    }
+
   }
   tools {
     maven 'maven3.8.5'
