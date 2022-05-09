@@ -52,12 +52,8 @@ pipeline {
         echo 'Deploy Done'
       }
     }
-    post {
-      success{
-        mail to 'benoit.hert@gmail.com'
-      }
-    }
   }
+  
   tools {
     maven 'maven3.8.5'
     jdk 'jdk'
