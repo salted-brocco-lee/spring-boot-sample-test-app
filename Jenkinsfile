@@ -40,6 +40,11 @@ pipeline {
     }
 
     stage('Deploy') {
+      when {
+        expression {
+          currentBuild.result == null || currentBuild.result == 'SUCCESS'
+        }
+      }
       steps {
         input(message: 'Voulez-vous Deployer ?', ok: 'Allons-y')
         echo 'Deploy Start'
