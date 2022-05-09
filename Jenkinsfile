@@ -6,6 +6,7 @@ pipeline {
         echo 'Build Start Running'
         bat 'mvn -B -DskipTests clean package'
         echo 'Build Done'
+        archiveArtifacts '**/target/*.jar'
       }
     }
 
@@ -43,7 +44,6 @@ pipeline {
         echo 'Deploy Start'
         bat 'mvn -B -DskipTests install'
         echo 'Deploy Done'
-        archiveArtifacts(onlyIfSuccessful: true, artifacts: '*')
       }
     }
 
